@@ -29,11 +29,9 @@ function ReplyButton() {
         />
       }
       sx={{
-        display: { xs: "none", sm: "flex" },
         alignItems: "center",
         textTransform: "initial",
         fontWeight: "medium",
-
         fontSize: 16,
         "&:hover": {
           color: "primary.light",

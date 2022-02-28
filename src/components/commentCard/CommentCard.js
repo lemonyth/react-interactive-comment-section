@@ -1,38 +1,49 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+
 import { Box } from "@mui/material";
 
 import ReplyButton from "../replyButton/ReplyButton";
+import ScoreButton from "../scoreButton/ScoreButton";
 
-function CommentCard() {
+function CommentCard(theme) {
   return (
-    <Card sx={{ p: 1 }}>
+    <Card
+      elevation={0}
+      sx={{ p: 1, pt: 3, pr: 2, maxWidth: "700px", borderRadius: 2 }}
+    >
       <Box
         sx={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-evenly",
-          minWidth: "375px",
+          //minWidth: "300px",
         }}
       >
         <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-          <Button>Score Button</Button>
+          <ScoreButton />
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            justifyContent: "center",
+          }}
+        >
           <Box
             sx={{
               //border: "red solid 1px",
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
+              ml: 2,
+              alignItems: "center",
+              mb: -1,
             }}
           >
             <Box
@@ -42,15 +53,19 @@ function CommentCard() {
                 //justifyContent: "space-evenly",
               }}
             >
-              <Avatar>A</Avatar>
+              <Avatar
+                sx={{ width: { xs: 30, sm: 35 }, height: { xs: 30, sm: 35 } }}
+              >
+                A
+              </Avatar>
               <Typography
                 sx={{
                   display: "flex",
                   alignItems: "center",
                   color: "secondary.dark",
                   fontWeight: "medium",
-                  fontSize: 19,
-                  mx: 3,
+                  fontSize: { xs: 16, sm: 19 },
+                  mx: 2,
                 }}
               >
                 amyrobson
@@ -59,15 +74,34 @@ function CommentCard() {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  fontSize: 19,
+                  fontSize: { xs: 16, sm: 19 },
                   color: "secondary.main",
                 }}
               >
                 1 month ago
               </Typography>
             </Box>
-            <ReplyButton />
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+              <ReplyButton />
+            </Box>
           </Box>
+          <CardContent>
+            <Typography color="secondary.main">
+              Impressive! Though it seems the drag feature could be improved.
+              But overall it looks incredible. You've nailed the design and the
+              responsiveness at various breakpoints works really well.
+            </Typography>
+          </CardContent>
+          <CardActions
+            sx={{
+              display: { xs: "flex", sm: "none" },
+              justifyContent: "space-between",
+            }}
+          >
+            <ScoreButton />
+
+            <ReplyButton />
+          </CardActions>
         </Box>
       </Box>
     </Card>

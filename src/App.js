@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Paper } from "@mui/material";
+import { Container } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 //custom components
@@ -27,14 +27,25 @@ function App() {
       fontFamily: ["Rubik"].join(","),
       //fontWeightBold: 700,
     },
+    overrides: {
+      MuiIconButton: {
+        root: {
+          "&:hover": {
+            backgroundColor: "red",
+          },
+        },
+      },
+    },
   });
 
   return (
-    <>
+    <Container
+      sx={{ display: "flex", px: { xs: 0 }, justifyContent: "center" }}
+    >
       <ThemeProvider theme={theme}>
         <CommentCard />
       </ThemeProvider>
-    </>
+    </Container>
   );
 }
 
