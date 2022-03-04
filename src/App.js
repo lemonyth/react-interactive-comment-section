@@ -1,9 +1,11 @@
 import React from "react";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 //custom components
 import CommentCard from "./components/commentCard/CommentCard";
+import ReplyForm from "./components/replyForm/ReplyForm";
+import CommentForm from "./components/addComment/CommentForm";
 
 function App() {
   const theme = createTheme({
@@ -27,25 +29,25 @@ function App() {
       fontFamily: ["Rubik"].join(","),
       //fontWeightBold: 700,
     },
-    overrides: {
-      MuiIconButton: {
-        root: {
-          "&:hover": {
-            backgroundColor: "red",
-          },
-        },
-      },
-    },
   });
 
   return (
-    <Container
-      sx={{ display: "flex", px: { xs: 0 }, justifyContent: "center" }}
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+
+        py: 5,
+        px: 1,
+      }}
     >
       <ThemeProvider theme={theme}>
         <CommentCard />
+        <CommentCard />
+        <CommentForm />
       </ThemeProvider>
-    </Container>
+    </Box>
   );
 }
 

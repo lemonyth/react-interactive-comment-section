@@ -13,7 +13,7 @@ function ReplyIcon(props) {
   );
 }
 
-function ReplyButton() {
+function ReplyButton({ handleShowReplyForm }) {
   return (
     <Button
       disableElevation
@@ -38,6 +38,7 @@ function ReplyButton() {
           backgroundColor: "white",
         },
       }}
+      onClick={handleShowReplyForm}
     >
       Reply
     </Button>

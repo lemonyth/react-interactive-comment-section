@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   root: {
     "&:hover": {
       backgroundColor: "transparent",
-      color: "primary",
+      color: "primary.main",
     },
   },
 });
